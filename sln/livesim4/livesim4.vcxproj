@@ -384,6 +384,7 @@
     <ClCompile Include="..\..\src\lvep\lvep.cpp" />
     <ClCompile Include="..\..\src\lvep\LVEPDecoder.cpp" />
     <ClCompile Include="..\..\src\lvep\LVEPVideoStream.cpp" />
+    <ClCompile Include="..\..\src\Scene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

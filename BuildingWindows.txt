@@ -42,8 +42,8 @@ this is not possible if LOVE is configured along with megasource (the DLLs doesn
 
 This assume PhysFS 2.1 or later is used. If you're using 2.0, undefine "LOVE_USE_PHYSFS_2_1"
 
-When building in my machine, I'm getting internal compiler error, so I have to modify
-`livesim4/src/love/src/modules/joystick/sdl/joystick.h` line 111 to this
+When building it in my machine, I'm getting internal compiler error, so I have to
+modify `livesim4/src/love/src/modules/joystick/sdl/joystick.h` line 111 to this
 ```
 SDL_HapticEffect effect;
 ```

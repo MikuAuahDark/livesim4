@@ -1028,5 +1028,8 @@
     <ClCompile Include="..\..\src\love\src\modules\audio\null\Source.cpp">
       <Filter>Source Files\love\modules\audio\null</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
