@@ -1,0 +1,49 @@
+Build instruction of livesim4 for MSVC (Windows)
+
+Requirements
+------------
+* MSVC 1800 (VS2013) or later - For building the whole project
+* CMake v3.1 or later - For building megasource
+* MSYS - For building FFmpeg
+* LOVE 0.10.2 - For the game
+* FFmpeg 3.x - More audio/video support
+* LVEP - More audio/video support (shipped)
+
+Preparation
+-----------
+1. Download FFmpeg 3.x and extract it to `livesim4/ffmpeg`. Make sure there's `livesim4/ffmpeg/configure` there.
+2. Clone Megasource to `livesim4/megasource
+2. Clone LOVE to `livesim4/src/love`
+
+Build FFmpeg
+------------
+1. Navigate to `livesim4/ffmpeg`
+2. Create `msvc` directory
+3. Navigate to newly created `msvc` directory
+4. $ ../configure --toolchain=msvc --enable-version3 --prefix=../../lib/ffmpeg/msvc --enable-shared --disable-static --disable-ffserver --disable-doc
+5. $ make
+6. $ make install
+PS: For 64bit build, use ../../lib/ffmpeg/msvc/x64 prefix. Make sure to use different folder name like "msvc64" in step 2
+
+Build Megasource
+----------------
+Follow megasource instructions, but specify "-DCMAKE_INSTALL_PREFIX=livesim4/lib/mgs(/x64)" (add /x64 for 64bit build)
+to CMake. Make sure to use "-Bbuild64" instead of "-Bbuild" for 64bit build.
+
+Build LOVE & livesim4
+---------------------
+1. Open `sln/livesim4.sln` solution
+2. Build
+
+Notes
+-----
+The reason LOVE has to build along with the whole livesim4 is that because livesim4 uses LOVE C++ API directly, where
+this is not possible if LOVE is configured along with megasource (the DLLs doesn't expose the LOVE C++ API)
+
+This assume PhysFS 2.1 or later is used. If you're using 2.0, undefine "LOVE_USE_PHYSFS_2_1"
+
+When building in my machine, I'm getting internal compiler error, so I have to modify
+`livesim4/src/love/src/modules/joystick/sdl/joystick.h` line 111 to this
+```
+SDL_HapticEffect effect;
+```

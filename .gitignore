@@ -1,0 +1,16 @@
+bin
+ffmpeg
+megasource
+src/love
+src/lovewrap
+sln/Debug
+sln/Release
+sln/src
+sln/.vs
+sln/livesim4.sdf
+sln/livesim4.opensdf
+sln/livesim4.*.suo
+sln/livesim4.VC.db
+sln/livesim4/livesim4.*.suo
+sln/livesim4/Debug
+sln/livesim4/Release
