@@ -56,7 +56,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)../megasource/libs/$(ZLIBVER);$(SolutionDir)../megasource/build/zlib;$(SolutionDir)../megasource/libs/$(FREETYPE)/include;$(SolutionDir)../megasource/libs/libmodplug-0.8.8.4/src;$(SolutionDir)../megasource/build/libmodplug;$(SolutionDir)../megasource/libs/$(LIBOGG)/include;$(SolutionDir)../megasource/libs/$(LIBTHEORA)/include;$(SolutionDir)../megasource/libs/$(LIBVORBIS)/include;$(SolutionDir)../megasource/libs/LuaJIT/src;$(SolutionDir)../megasource/libs/$(MPG123)/src;$(SolutionDir)../megasource/libs/$(MPG123)/src/libmpg123;$(SolutionDir)../megasource/libs/$(MPG123)/ports/MSVC++;$(SolutionDir)../megasource/libs/openal-soft/include;$(SolutionDir)../megasource/libs/$(PHYSFS)/src;$(SolutionDir)../megasource/libs/SDL2/include;$(SolutionDir)../lib/ffmpeg/msvc/include;$(SolutionDir)../src/love/src;$(SolutionDir)../src/love/src/modules;$(SolutionDir)../src/love/src/libraries;$(SolutionDir)../src/love/src/libraries/luasocket;$(SolutionDir)../src/love/src/libraries/enet/libenet/include</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
       <UndefinePreprocessorDefinitions>
@@ -66,7 +66,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)..</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;megasource/build/bin/lua51.lib;megasource/build/freetype/$(Configuration)/freetype$(ConfSuffix).lib;megasource/build/libmodplug/$(Configuration)/modplug-static$(ConfSuffix).lib;megasource/build/libogg/$(Configuration)/ogg-static.lib;megasource/build/libtheora/$(Configuration)/theora-static.lib;megasource/build/libvorbis/$(Configuration)/vorbis-static.lib;megasource/build/libvorbis/$(Configuration)/vorbisfile-static.lib;megasource/build/mpg123/$(Configuration)/mpg123.lib;megasource/build/openal-soft/$(Configuration)/OpenAL32$(ConfSuffix).lib;megasource/build/physfs/$(Configuration)/physfs-static.lib;megasource/build/SDL2/$(Configuration)/SDL2$(ConfSuffix).lib;megasource/build/zlib/$(Configuration)/zlibstatic$(ConfSuffix).lib;lib/ffmpeg/msvc/bin/avcodec.lib;lib/ffmpeg/msvc/bin/avdevice.lib;lib/ffmpeg/msvc/bin/avfilter.lib;lib/ffmpeg/msvc/bin/avformat.lib;lib/ffmpeg/msvc/bin/avutil.lib;lib/ffmpeg/msvc/bin/swresample.lib;lib/ffmpeg/msvc/bin/swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;ws2_32.lib;winmm.lib;megasource/build/bin/lua51.lib;megasource/build/freetype/$(Configuration)/freetype$(ConfSuffix).lib;megasource/build/libmodplug/$(Configuration)/modplug-static$(ConfSuffix).lib;megasource/build/libogg/$(Configuration)/ogg-static.lib;megasource/build/libtheora/$(Configuration)/theora-static.lib;megasource/build/libvorbis/$(Configuration)/vorbis-static.lib;megasource/build/libvorbis/$(Configuration)/vorbisfile-static.lib;megasource/build/mpg123/$(Configuration)/mpg123.lib;megasource/build/openal-soft/$(Configuration)/OpenAL32$(ConfSuffix).lib;megasource/build/physfs/$(Configuration)/physfs-static.lib;megasource/build/SDL2/$(Configuration)/SDL2$(ConfSuffix).lib;megasource/build/zlib/$(Configuration)/zlibstatic$(ConfSuffix).lib;lib/ffmpeg/msvc/bin/avcodec.lib;lib/ffmpeg/msvc/bin/avdevice.lib;lib/ffmpeg/msvc/bin/avfilter.lib;lib/ffmpeg/msvc/bin/avformat.lib;lib/ffmpeg/msvc/bin/avutil.lib;lib/ffmpeg/msvc/bin/swresample.lib;lib/ffmpeg/msvc/bin/swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,7 +77,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)../megasource/libs/$(ZLIBVER);$(SolutionDir)../megasource/build/zlib;$(SolutionDir)../megasource/libs/$(FREETYPE)/include;$(SolutionDir)../megasource/libs/libmodplug-0.8.8.4/src;$(SolutionDir)../megasource/build/libmodplug;$(SolutionDir)../megasource/libs/$(LIBOGG)/include;$(SolutionDir)../megasource/libs/$(LIBTHEORA)/include;$(SolutionDir)../megasource/libs/$(LIBVORBIS)/include;$(SolutionDir)../megasource/libs/LuaJIT/src;$(SolutionDir)../megasource/libs/$(MPG123)/src;$(SolutionDir)../megasource/libs/$(MPG123)/src/libmpg123;$(SolutionDir)../megasource/libs/$(MPG123)/ports/MSVC++;$(SolutionDir)../megasource/libs/openal-soft/include;$(SolutionDir)../megasource/libs/$(PHYSFS)/src;$(SolutionDir)../megasource/libs/SDL2/include;$(SolutionDir)../lib/ffmpeg/msvc/include;$(SolutionDir)../src/love/src;$(SolutionDir)../src/love/src/modules;$(SolutionDir)../src/love/src/libraries;$(SolutionDir)../src/love/src/libraries/luasocket;$(SolutionDir)../src/love/src/libraries/enet/libenet/include</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
       <UndefinePreprocessorDefinitions>
@@ -89,11 +89,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)..</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ws2_32.lib;winmm.lib;megasource/build/bin/lua51.lib;megasource/build/freetype/$(Configuration)/freetype$(ConfSuffix).lib;megasource/build/libmodplug/$(Configuration)/modplug-static$(ConfSuffix).lib;megasource/build/libogg/$(Configuration)/ogg-static.lib;megasource/build/libtheora/$(Configuration)/theora-static.lib;megasource/build/libvorbis/$(Configuration)/vorbis-static.lib;megasource/build/libvorbis/$(Configuration)/vorbisfile-static.lib;megasource/build/mpg123/$(Configuration)/mpg123.lib;megasource/build/openal-soft/$(Configuration)/OpenAL32$(ConfSuffix).lib;megasource/build/physfs/$(Configuration)/physfs-static.lib;megasource/build/SDL2/$(Configuration)/SDL2$(ConfSuffix).lib;megasource/build/zlib/$(Configuration)/zlibstatic$(ConfSuffix).lib;lib/ffmpeg/msvc/bin/avcodec.lib;lib/ffmpeg/msvc/bin/avdevice.lib;lib/ffmpeg/msvc/bin/avfilter.lib;lib/ffmpeg/msvc/bin/avformat.lib;lib/ffmpeg/msvc/bin/avutil.lib;lib/ffmpeg/msvc/bin/swresample.lib;lib/ffmpeg/msvc/bin/swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;ws2_32.lib;winmm.lib;megasource/build/bin/lua51.lib;megasource/build/freetype/$(Configuration)/freetype$(ConfSuffix).lib;megasource/build/libmodplug/$(Configuration)/modplug-static$(ConfSuffix).lib;megasource/build/libogg/$(Configuration)/ogg-static.lib;megasource/build/libtheora/$(Configuration)/theora-static.lib;megasource/build/libvorbis/$(Configuration)/vorbis-static.lib;megasource/build/libvorbis/$(Configuration)/vorbisfile-static.lib;megasource/build/mpg123/$(Configuration)/mpg123.lib;megasource/build/openal-soft/$(Configuration)/OpenAL32$(ConfSuffix).lib;megasource/build/physfs/$(Configuration)/physfs-static.lib;megasource/build/SDL2/$(Configuration)/SDL2$(ConfSuffix).lib;megasource/build/zlib/$(Configuration)/zlibstatic$(ConfSuffix).lib;lib/ffmpeg/msvc/bin/avcodec.lib;lib/ffmpeg/msvc/bin/avdevice.lib;lib/ffmpeg/msvc/bin/avfilter.lib;lib/ffmpeg/msvc/bin/avformat.lib;lib/ffmpeg/msvc/bin/avutil.lib;lib/ffmpeg/msvc/bin/swresample.lib;lib/ffmpeg/msvc/bin/swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\AssetManager.cpp" />
     <ClCompile Include="..\..\src\livesim4.cpp" />
+    <ClCompile Include="..\..\src\lovewrap\LOVEWrapFilesystem.cpp" />
+    <ClCompile Include="..\..\src\lovewrap\LOVEWrapGraphics.cpp" />
     <ClCompile Include="..\..\src\love\src\common\android.cpp" />
     <ClCompile Include="..\..\src\love\src\common\b64.cpp" />
     <ClCompile Include="..\..\src\love\src\common\delay.cpp" />
@@ -385,6 +388,9 @@
     <ClCompile Include="..\..\src\lvep\LVEPDecoder.cpp" />
     <ClCompile Include="..\..\src\lvep\LVEPVideoStream.cpp" />
     <ClCompile Include="..\..\src\Scene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\src\livesim4.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

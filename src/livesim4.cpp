@@ -42,40 +42,84 @@ extern "C" {
 #include "modules/graphics/Graphics.h"
 #include "modules/graphics/opengl/Graphics.h"
 
-#ifdef KEY_EXECUTE
-#undef KEY_EXECUTE
-#endif
-
 // lvep
 extern "C" int luaopen_lvep(lua_State *L);
+
+// Asset manager
+#include "AssetManager.h"
 
 // scene
 #include "Scene.h"
 
+// script
+const char mainLua[] = {
+#include "scripts/main.lua"
+};
+const char confLua[] = {
+#include "scripts/conf.lua"
+};
+
+#ifdef LOVE_WINDOWS
+extern "C" {
+LOVE_EXPORT DWORD NvOptimusEnablement = 1;
+LOVE_EXPORT DWORD AmdPowerXpressRequestHighPerformance = 1;
+}
+#endif
+
 class SimpleSceneTest: public livesim::base::Scene
 {
 public:
-	SimpleSceneTest(void *args): Scene(args) {}
+	SimpleSceneTest(void *args): Scene(args)
+	{
+		livesim2_image = livesim::asset::loadImage("livesim2_icon.png");
+	}
 	~SimpleSceneTest()
 	{
 		fprintf(stdout, "love.quit");
+		livesim2_image->release();
 	}
 	void draw()
 	{
 		auto g = love::Module::getInstance<love::graphics::opengl::Graphics>(love::Module::M_GRAPHICS);
 		g->clear(love::graphics::Colorf(255.0, 255.0, 255.0, 255.0));
+		livesim2_image->draw(0, 0, 0, 0.25, 0.25, 0, 0, 0, 0);
 	}
 	void update(double deltaT)
 	{
 		fprintf(stdout, "deltaT: %g\n", deltaT);
 	}
+private:
+	love::graphics::Drawable *livesim2_image;
 };
 
 // Simple inlined function :P
 inline void setCFunction(lua_State *L, const char *name, lua_CFunction func)
 {
+	auto f = [](lua_State *L)->int
+	{
+		lua_CFunction func = (lua_CFunction) (lua_topointer(L, lua_upvalueindex(1)));
+
+		try
+		{
+			return func(L);
+		}
+		catch(love::Exception &e)
+		{
+			return luaL_error(L, "LOVE Error: %s", e.what());
+		}
+		catch(std::exception &e)
+		{
+			return luaL_error(L, "Exception: %s", e.what());
+		}
+		catch(...)
+		{
+			return luaL_error(L, "Unknown exception!");
+		}
+	};
+
 	lua_pushstring(L, name);
-	lua_pushcclosure(L, func, 0);
+	lua_pushlightuserdata(L, func);
+	lua_pushcclosure(L, f, 1);
 	lua_rawset(L, -3);
 }
 
@@ -83,6 +127,10 @@ inline void setCFunction(lua_State *L, const char *name, lua_CFunction func)
 int hijackHandlers(lua_State *L)
 {
 	using namespace livesim::base;
+
+	// Load our scene
+	loadScene(new SimpleSceneTest(nullptr));
+	swapScene(); // forced
 
 	// Get love table
 	lua_getglobal(L, "love");
@@ -191,17 +239,14 @@ int runLivesim4(int argc, char *argv[])
 	// Add command line arguments to global arg (like stand-alone Lua).
 	{
 		lua_newtable(L);
-
 		if (argc > 0)
 		{
 			lua_pushstring(L, argv[0]);
 			lua_rawseti(L, -2, -2);
 		}
-
+		
 		lua_pushstring(L, "embedded boot.lua");
 		lua_rawseti(L, -2, -1);
-		lua_pushstring(L, ".");
-		lua_rawseti(L, -2, 1);
 
 		lua_setglobal(L, "arg");
 	}
@@ -211,16 +256,36 @@ int runLivesim4(int argc, char *argv[])
 	lua_pushstring(L, "love");
 	lua_call(L, 1, 0);
 
+	// Hijack love.nogame
+	lua_pushcfunction(L, [](lua_State *L)->int
+	{
+		lua_pushcfunction(L, [](lua_State *L)->int
+		{
+			// When love.nogame is called, load our conf.lua
+			luaL_loadbuffer(L, confLua, sizeof(confLua), "@conf.lua");
+			lua_call(L, 0, 0);
+
+			// And set love.load to current main.lua function
+			lua_getglobal(L, "love");
+			luaL_loadbuffer(L, mainLua, sizeof(mainLua), "@main.lua");
+			lua_setfield(L, -2, "load");
+
+			// return true for unknown reason
+			lua_pushboolean(L, 1);
+			return 1;
+		});
+		return 1;
+	});
+	lua_setfield(L, -2, "love.nogame");
+
 	// Initialize scene
 	livesim::base::initializeScene();
-	livesim::base::loadScene(new SimpleSceneTest(nullptr));
-	livesim::base::swapScene();
 
 	// get debug.traceback
 	lua_getglobal(L, "debug");
 	lua_getfield(L, -1, "traceback");
 	
-	// require "love.boot" (preloaded when love was required.)
+	// require "love.boot" (preloaded when love was required)
 	lua_getglobal(L, "require");
 	lua_pushstring(L, "love.boot");
 	lua_call(L, 1, 1);

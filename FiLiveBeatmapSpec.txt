@@ -1,0 +1,75 @@
+FiLive! Beatmap File Specification
+Extension: *.fim
+           *.flm is also acceptable, but it's used by FL Studio Mobile by Image-Line.
+Still subject to change!
+
+Datatypes:
+* byte   - 1 byte (C char datatype). "
+* word   - 2 bytes (C short datatype). "
+* dword  - 4 bytes (C int datatype). "
+* sfloat - 4 bytes, floating point (C float datatype).
+* dfloat - 8 bytes, floating point (C double datatype).
+* varint - variable-length integer. MIDI-like encoding.
+* string - variable-length string. First unsigned dword is string length in bytes followed by the data.
+" Default to unsigned, 2s complement, and little endian unless stated otherwise.
+
+File header start:
+dword  - Header ("Fi!M", stands for "Fi!Live beatMap")
+byte   - Version (1 at the moment)
+byte   - Background ID (or 0 to use default)
+byte   - Note style (1, 2, or 3 for normal, neon, and matte respectively. 0 for default)
+string - Song name
+string - Song information (lyrics, composition, arrangement string)
+
+Fi!Live beatmap consist of chunk (seamlessly stolen from PNG), where each chunk are defined as:
+dword  - Chunk FourCC
+string - Data
+dword  - PNG/zlib CRC32 of Data above, including the chunk FourCC and the data length (AUTODIN II polynomial).
+
+Decoder which doesn't know how to interpret specific chunk must ignore the whole chunk.
+Summary, Fi!Live Beatmap file format consist of:
+[File Header] + [Chunk] + [Chunk] + ... + [FEND Chunk]
+
+Now list of chunks:
+* BMAP - Beatmap (can appear multiple times for different difficulty)
+  byte   - Compression. If it's 0, then the data below is uncompressed.
+           * If it's 0x78, then it's zlib compressed
+           * If it's 0x1F, then it's gzip compressed
+  string - Difficulty string
+  byte   - Difficulty star
+  byte   - Difficulty star (random variant; 0 to get from previous value)
+  dword  - Score needed for C score
+  dword  - Score needed for B score
+  dword  - Score needed for A score
+  dword  - Score needed for S score
+  dword  - Combo needed for C combo
+  dword  - Combo needed for B combo
+  dword  - Combo needed for A combo
+  dword  - Combo needed for S combo
+  dword  - Amount of notes
+  For every notes by "Amount of notes":
+    sfloat - Note timing in seconds
+    dwordu - Attribute. Bit layout: rrrrrrrr rggggggg ggbbbbbb bbbccccc
+             * bit 0-4 (c): Note images following Sukufesu simulator note colors in order. Ask yuyu for it, lol.
+             * If all bits 0-4 is 1 - Colored note
+               * bit 23-31 - R color (9 bits, unsigned)
+               * bit 14-22 - G color (9 bits, unsigned)
+               * bit 5-13  - B color (9 bits, unsigned)
+    dwordu - Physical note information. Bit layout: gggggggg gggggggg gggggggs vvffpppp
+             * bit 0-3 - Position. 9 is leftmost, 1 is rightmost. Values outside that range are invalid.
+             * bit 4-5 - Note effect
+               * 0 = Normal note
+               * 1 = Token note
+               * 2 = Long note (bit 6-23 is the length, max 262.143 seconds or 262143 ms length)
+               * 3 = Star note
+             * bit 6-7 - Note visibility
+               * 0 = Usual note
+               * 1 = Hidden note
+               * 2 = Sudden note
+             * bit 8 - Is swing note? (cannot be applied to star note)
+             * bit 9-31 - Note group (for swing). Can be 0
+    sfloat - Note length (For long note. Default to 0 if not used). Zero-length long note is not a valid note.
+    * If note data contains invalid value, skip the whole note data
+  EndFor
+
+* FEND - End of beatmap file (zero-length chunk)

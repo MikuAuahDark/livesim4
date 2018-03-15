@@ -1,4 +1,25 @@
+R"luastring"--(
+-- DO NOT REMOVE THE ABOVE LINE. It is used to load this file as a C++ string.
+-- There is a matching delimiter at the bottom of the file.
+
 local love = require("love")
+--[[
+require("love.audio")
+require("love.event")
+require("love.font")
+require("love.graphics")
+require("love.image")
+require("love.keyboard")
+require("love.math")
+require("love.mouse")
+require("love.sound")
+require("love.system")
+require("love.timer")
+require("love.touch")
+require("love.video")
+require("love.window")
+]]
+
 function love.conf(t)
 	t.identity              = "livesim4"
 	t.version               = "0.10.2"
@@ -27,3 +48,6 @@ function love.conf(t)
 	t.modules.joystick      = false
 	t.modules.physics       = false
 end
+
+-- DO NOT REMOVE THE NEXT LINE. It is used to load this file as a C++ string.
+--)luastring"--"

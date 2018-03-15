@@ -28,6 +28,7 @@
 
 // love
 #include "common/Object.h"
+#include "lovewrap/SafeGuard.h"
 #include "modules/keyboard/Keyboard.h"
 #include "modules/mouse/Mouse.h"
 

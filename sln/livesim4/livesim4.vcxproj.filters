@@ -153,6 +153,9 @@
     <Filter Include="Source Files\love\modules\audio\null">
       <UniqueIdentifier>{6dcdd12a-b498-48d0-8333-cc4f94db25af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\love++">
+      <UniqueIdentifier>{6c981374-7265-43cc-a94f-fe84ca87353f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\love\src\common\android.cpp">
@@ -1031,5 +1034,19 @@
     <ClCompile Include="..\..\src\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\AssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lovewrap\LOVEWrapFilesystem.cpp">
+      <Filter>Source Files\love++</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lovewrap\LoveWrapGraphics.cpp">
+      <Filter>Source Files\love++</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\src\livesim4.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

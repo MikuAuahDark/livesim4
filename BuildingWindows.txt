@@ -1,4 +1,4 @@
-Build instruction of livesim4 for MSVC (Windows)
+Build instruction of livesim4 MSVC (Windows)
 
 Requirements
 ------------
@@ -12,7 +12,7 @@ Requirements
 Preparation
 -----------
 1. Download FFmpeg 3.x and extract it to `livesim4/ffmpeg`. Make sure there's `livesim4/ffmpeg/configure` there.
-2. Clone Megasource to `livesim4/megasource
+2. Clone Megasource to `livesim4/megasource`
 2. Clone LOVE to `livesim4/src/love`
 
 Build FFmpeg
@@ -23,7 +23,7 @@ Build FFmpeg
 4. $ ../configure --toolchain=msvc --enable-version3 --prefix=../../lib/ffmpeg/msvc --enable-shared --disable-static --disable-ffserver --disable-doc
 5. $ make
 6. $ make install
-PS: For 64bit build, use ../../lib/ffmpeg/msvc/x64 prefix. Make sure to use different folder name like "msvc64" in step 2
+PS: For 64bit build, use `../../lib/ffmpeg/msvc/x64` prefix. Make sure to use different folder name like "msvc64" in step 2
 
 Build Megasource
 ----------------
@@ -37,7 +37,7 @@ Build LOVE & livesim4
 
 Notes
 -----
-The reason LOVE has to build along with the whole livesim4 is that because livesim4 uses LOVE C++ API directly, where
+The reason LOVE needs to be build along with livesim4 is that because livesim4 uses LOVE C++ API directly, where
 this is not possible if LOVE is configured along with megasource (the DLLs doesn't expose the LOVE C++ API)
 
 This assume PhysFS 2.1 or later is used. If you're using 2.0, undefine "LOVE_USE_PHYSFS_2_1"
