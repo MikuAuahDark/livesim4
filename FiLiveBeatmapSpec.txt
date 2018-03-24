@@ -1,9 +1,10 @@
 FiLive! Beatmap File Specification
 Extension: *.fim
+           *.fi
            *.flm is also acceptable, but it's used by FL Studio Mobile by Image-Line.
 Still subject to change!
 
-Datatypes:
+Datatypes (little endian):
 * byte   - 1 byte (C char datatype). "
 * word   - 2 bytes (C short datatype). "
 * dword  - 4 bytes (C int datatype). "
@@ -11,22 +12,28 @@ Datatypes:
 * dfloat - 8 bytes, floating point (C double datatype).
 * varint - variable-length integer. MIDI-like encoding.
 * string - variable-length string. First unsigned dword is string length in bytes followed by the data.
-" Default to unsigned, 2s complement, and little endian unless stated otherwise.
+" Default to unsigned, 2s complement, unless stated otherwise.
 
 File header start:
-dword  - Header ("Fi!M", stands for "Fi!Live beatMap")
+dword  - Header ("Fi!M", stands for "FiLive! beatMap")
 byte   - Version (1 at the moment)
 byte   - Background ID (or 0 to use default)
 byte   - Note style (1, 2, or 3 for normal, neon, and matte respectively. 0 for default)
+string - Beatmapper name (can be empty)
 string - Song name
 string - Song information (lyrics, composition, arrangement string)
 
 Fi!Live beatmap consist of chunk (seamlessly stolen from PNG), where each chunk are defined as:
 dword  - Chunk FourCC
 string - Data
-dword  - PNG/zlib CRC32 of Data above, including the chunk FourCC and the data length (AUTODIN II polynomial).
+dword  - zlib CRC32 of Data above, including the chunk FourCC and the data length
 
-Decoder which doesn't know how to interpret specific chunk must ignore the whole chunk.
+All implementation must understand and successfully decode critical chunk (all uppercase).
+Very simple FiLive! beatmap decoder must support minimal BMAP and FEND chunk!
+
+Ancillary chunks (lowercase in first character) can be ignored by decoder if decoder
+doesn't know how to interpret it.
+
 Summary, Fi!Live Beatmap file format consist of:
 [File Header] + [Chunk] + [Chunk] + ... + [FEND Chunk]
 
@@ -35,6 +42,7 @@ Now list of chunks:
   byte   - Compression. If it's 0, then the data below is uncompressed.
            * If it's 0x78, then it's zlib compressed
            * If it's 0x1F, then it's gzip compressed
+  dword  - Uncompressed length of all data below.
   string - Difficulty string
   byte   - Difficulty star
   byte   - Difficulty star (random variant; 0 to get from previous value)
@@ -72,4 +80,24 @@ Now list of chunks:
     * If note data contains invalid value, skip the whole note data
   EndFor
 
+* aDNM - Audio filename (can appear multiple times)
+  string - Preferred audio filename
+
+* aDDT - Audio data (can only appear once). Ignores aDNM if present.
+  string - Audio extension, to let libav probe the format
+  string - Audio data
+
+* aVNS - Advanced note style setting
+  byte - Frame note style ID
+  byte - Simultaneous note style ID
+  byte - Swing note style ID
+
+* sRYL - Storyboard
+  byte   - Compression. If it's 0, then the data below is uncompressed.
+           * If it's 0x78, then it's zlib compressed
+           * If it's 0x1F, then it's gzip compressed
+  dword  - Uncompressed length of all data below.
+  string - Storyboard script
+
 * FEND - End of beatmap file (zero-length chunk)
+  If this chunk does not appear in EOF that means beatmap is corrupted.
