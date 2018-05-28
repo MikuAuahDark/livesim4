@@ -1,10 +1,9 @@
+.vscode
 bin
 cwd
 ffmpeg
 megasource
 src/livesim4.aps
-src/love
-src/lovewrap
 sln/Debug
 sln/Release
 sln/src

@@ -111,9 +111,6 @@
     <Filter Include="Source Files\love\modules\timer">
       <UniqueIdentifier>{ed1bfd79-2c73-4c5f-8684-be636e34cd38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\love\modules\timer\sdl">
-      <UniqueIdentifier>{b6b5c06a-c2b0-42fe-9ba3-f5f4d2cdd8e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\love\modules\touch\sdl">
       <UniqueIdentifier>{572da404-2b80-4f54-bcff-aed9b71dbcfb}</UniqueIdentifier>
     </Filter>
@@ -155,6 +152,12 @@
     </Filter>
     <Filter Include="Source Files\love++">
       <UniqueIdentifier>{6c981374-7265-43cc-a94f-fe84ca87353f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\love\modules\data">
+      <UniqueIdentifier>{eb5cdc2b-618e-43d6-bddf-0ee8888dc507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\love\3p\glslang">
+      <UniqueIdentifier>{eeec9006-2614-485d-9997-0ddebc493677}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,9 +201,6 @@
       <Filter>Source Files\love\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\common\Vector.cpp">
-      <Filter>Source Files\love\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\common\wrap_Data.cpp">
       <Filter>Source Files\love\common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\lvep\FFMpegStream.cpp">
@@ -335,75 +335,6 @@
     <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Texture.cpp">
       <Filter>Source Files\love\modules\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Image.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Mesh.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\OpenGL.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\ParticleSystem.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Polyline.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Shader.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\SpriteBatch.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Text.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Video.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Canvas.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Font.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Graphics.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Image.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Mesh.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_ParticleSystem.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Shader.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_SpriteBatch.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Text.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Video.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Canvas.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Font.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\GLBuffer.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Graphics.cpp">
-      <Filter>Source Files\love\modules\graphics\opengl</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\image\CompressedImageData.cpp">
       <Filter>Source Files\love\modules\image</Filter>
     </ClCompile>
@@ -422,19 +353,7 @@
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\ASTCHandler.cpp">
       <Filter>Source Files\love\modules\image\magpie</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\CompressedImageData.cpp">
-      <Filter>Source Files\love\modules\image\magpie</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\ddsHandler.cpp">
-      <Filter>Source Files\love\modules\image\magpie</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\FormatHandler.cpp">
-      <Filter>Source Files\love\modules\image\magpie</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\Image.cpp">
-      <Filter>Source Files\love\modules\image\magpie</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\ImageData.cpp">
       <Filter>Source Files\love\modules\image\magpie</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\KTXHandler.cpp">
@@ -482,12 +401,6 @@
     <ClCompile Include="..\..\src\love\src\modules\math\BezierCurve.cpp">
       <Filter>Source Files\love\modules\math</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\math\CompressedData.cpp">
-      <Filter>Source Files\love\modules\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\math\Compressor.cpp">
-      <Filter>Source Files\love\modules\math</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\math\MathModule.cpp">
       <Filter>Source Files\love\modules\math</Filter>
     </ClCompile>
@@ -495,9 +408,6 @@
       <Filter>Source Files\love\modules\math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\math\wrap_BezierCurve.cpp">
-      <Filter>Source Files\love\modules\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\math\wrap_CompressedData.cpp">
       <Filter>Source Files\love\modules\math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\math\wrap_Math.cpp">
@@ -530,138 +440,6 @@
     <ClCompile Include="..\..\src\love\src\modules\physics\Shape.cpp">
       <Filter>Source Files\love\modules\physics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Body.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\ChainShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\CircleShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Contact.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\DistanceJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\EdgeShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Fixture.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\FrictionJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\GearJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Joint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\MotorJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\MouseJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Physics.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PolygonShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PrismaticJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PulleyJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\RevoluteJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\RopeJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Shape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\WeldJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\WheelJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\World.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Body.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_ChainShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_CircleShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Contact.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_DistanceJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_EdgeShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Fixture.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_FrictionJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_GearJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Joint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_MotorJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_MouseJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Physics.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PolygonShape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PrismaticJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PulleyJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_RevoluteJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_RopeJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Shape.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_WeldJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_WheelJoint.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_World.cpp">
-      <Filter>Source Files\love\modules\physics\box2d</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\sound\Sound.cpp">
       <Filter>Source Files\love\modules\sound</Filter>
     </ClCompile>
@@ -678,9 +456,6 @@
       <Filter>Source Files\love\modules\sound</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\CoreAudioDecoder.cpp">
-      <Filter>Source Files\love\modules\sound\lullaby</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\Decoder.cpp">
       <Filter>Source Files\love\modules\sound\lullaby</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\FLACDecoder.cpp">
@@ -746,9 +521,6 @@
     <ClCompile Include="..\..\src\love\src\modules\timer\wrap_Timer.cpp">
       <Filter>Source Files\love\modules\timer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\timer\sdl\Timer.cpp">
-      <Filter>Source Files\love\modules\timer\sdl</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\touch\wrap_Touch.cpp">
       <Filter>Source Files\love\modules\touch</Filter>
     </ClCompile>
@@ -763,12 +535,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\video\wrap_VideoStream.cpp">
       <Filter>Source Files\love\modules\video</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\video\theora\Video.cpp">
-      <Filter>Source Files\love\modules\video\theora</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\love\src\modules\video\theora\VideoStream.cpp">
-      <Filter>Source Files\love\modules\video\theora</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\love\src\modules\window\Window.cpp">
       <Filter>Source Files\love\modules\window</Filter>
@@ -956,9 +722,6 @@
     <ClCompile Include="..\..\src\love\src\libraries\lodepng\lodepng.cpp">
       <Filter>Source Files\love\3p\other</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\love\src\libraries\luautf8\lutf8lib.c">
-      <Filter>Source Files\love\3p\other</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\love\src\libraries\lz4\lz4.c">
       <Filter>Source Files\love\3p\other</Filter>
     </ClCompile>
@@ -1034,14 +797,467 @@
     <ClCompile Include="..\..\src\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\AssetManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\lovewrap\LOVEWrapFilesystem.cpp">
       <Filter>Source Files\love++</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\lovewrap\LoveWrapGraphics.cpp">
       <Filter>Source Files\love++</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\Data.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\deprecation.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\halffloat.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\pixelformat.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\Stream.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\StringMap.cpp">
+      <Filter>Source Files\love\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\Effect.cpp">
+      <Filter>Source Files\love\modules\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\Filter.cpp">
+      <Filter>Source Files\love\modules\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\RecordingDevice.cpp">
+      <Filter>Source Files\love\modules\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\wrap_RecordingDevice.cpp">
+      <Filter>Source Files\love\modules\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\null\RecordingDevice.cpp">
+      <Filter>Source Files\love\modules\audio\null</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\Effect.cpp">
+      <Filter>Source Files\love\modules\audio\openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\Filter.cpp">
+      <Filter>Source Files\love\modules\audio\openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\RecordingDevice.cpp">
+      <Filter>Source Files\love\modules\audio\openal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\ByteData.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\CompressedData.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\Compressor.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\DataModule.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\DataView.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\HashFunction.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_ByteData.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_CompressedData.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_Data.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_DataModule.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_DataView.cpp">
+      <Filter>Source Files\love\modules\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Buffer.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Canvas.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Deprecations.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\depthstencil.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Drawable.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Font.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Image.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Mesh.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Polyline.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Shader.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\ShaderStage.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\SpriteBatch.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\StreamBuffer.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Text.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\vertex.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Video.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Canvas.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Font.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Graphics.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Image.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Mesh.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_ParticleSystem.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Shader.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_SpriteBatch.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Text.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Video.cpp">
+      <Filter>Source Files\love\modules\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Buffer.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Canvas.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\FenceSync.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Graphics.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Image.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\OpenGL.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Shader.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\ShaderStage.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\StreamBuffer.cpp">
+      <Filter>Source Files\love\modules\graphics\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\image\CompressedSlice.cpp">
+      <Filter>Source Files\love\modules\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\image\FormatHandler.cpp">
+      <Filter>Source Files\love\modules\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\image\Image.cpp">
+      <Filter>Source Files\love\modules\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\image\ImageDataBase.cpp">
+      <Filter>Source Files\love\modules\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\math\Transform.cpp">
+      <Filter>Source Files\love\modules\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\math\wrap_Transform.cpp">
+      <Filter>Source Files\love\modules\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Body.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\ChainShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\CircleShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Contact.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\DistanceJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\EdgeShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Fixture.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\FrictionJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\GearJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Joint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\MotorJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\MouseJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Physics.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PolygonShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PrismaticJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\PulleyJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\RevoluteJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\RopeJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\Shape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\WeldJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\WheelJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\World.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Body.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_ChainShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_CircleShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Contact.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_DistanceJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_EdgeShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Fixture.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_FrictionJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_GearJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Joint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_MotorJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_MouseJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Physics.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PolygonShape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PrismaticJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_PulleyJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_RevoluteJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_RopeJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_Shape.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_WeldJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_WheelJoint.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_World.cpp">
+      <Filter>Source Files\love\modules\physics\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\sound\Decoder.cpp">
+      <Filter>Source Files\love\modules\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\video\theora\OggDemuxer.cpp">
+      <Filter>Source Files\love\modules\video\theora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\video\theora\TheoraVideoStream.cpp">
+      <Filter>Source Files\love\modules\video\theora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\video\theora\Video.cpp">
+      <Filter>Source Files\love\modules\video\theora</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Boot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\conf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Constant.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\glslang_tab.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\InfoSink.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Initialize.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Intermediate.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\intermOut.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\IntermTraverse.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\iomapper.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\limits.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\linkValidate.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\parseConst.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ParseContextBase.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ParseHelper.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\PoolAlloc.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\propagateNoContraction.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\reflection.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\RemoveTree.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Scan.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ShaderLang.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\SymbolTable.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Versions.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\Pp.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpAtom.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpContext.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpScanner.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpTokens.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\GenericCodeGen\CodeGen.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\GenericCodeGen\Link.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\lua53\lstrlib.c">
+      <Filter>Source Files\love\3p\other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\lua53\lutf8lib.c">
+      <Filter>Source Files\love\3p\other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\OSDependent\Windows\ossource.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\OGLCompilersDLL\InitializeDll.cpp">
+      <Filter>Source Files\love\3p\glslang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\compat.c">
+      <Filter>Source Files\love\3p\luasocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\modules\image\magpie\EXRHandler.cpp">
+      <Filter>Source Files\love\modules\image\magpie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\libraries\xxHash\xxhash.c">
+      <Filter>Source Files\love\3p\other</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\love\src\common\memory.cpp">
+      <Filter>Source Files\love\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

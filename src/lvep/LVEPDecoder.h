@@ -15,7 +15,8 @@ extern "C"
 class LVEPDecoder : public love::sound::Decoder
 {
 public:
-	LVEPDecoder(love::filesystem::File *file);
+	LVEPDecoder(love::filesystem::FileData *data, int bufferSize);
+	LVEPDecoder(love::Data *data, const std::string &ext, int bufferSize);
 	virtual ~LVEPDecoder();
 
 	love::sound::Decoder *clone();
@@ -26,7 +27,7 @@ public:
 	bool rewind();
 	bool isSeekable();
 	bool isFinished();
-	int getChannels() const;
+	int getChannelCount() const;
 	int getBitDepth() const;
 	int getSampleRate() const;
 	double getDuration();
@@ -36,8 +37,4 @@ private:
 	AVFrame *frame;
 	SwrContext *recodeContext;
 	love::StrongRef<love::filesystem::File> file;
-	bool eos;
-
-	static const int bufferSize = 8192;
-	uint8_t buffer[bufferSize];
 };

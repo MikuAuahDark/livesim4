@@ -9,17 +9,32 @@ FFMpegStream::FFMpegStream(love::filesystem::File *file, StreamType type)
 	, type(type)
 	, file(file)
 {
+	initialize();
+}
+
+FFMpegStream::FFMpegStream(love::filesystem::FileData *fileData, StreamType type)
+	: ioContext(fileData)
+	, inputFormat(nullptr)
+	, formatContext(nullptr)
+	, codecContext(nullptr)
+	, targetStream(-1)
+	, type(type)
+	, fileData(fileData)
+{
+	initialize();
+}
+
+void FFMpegStream::initialize()
+{
 	packet.buf = nullptr;
-	const std::string &filename = file->getFilename();
+	std::string filename = "";
+	if (file.operator love::filesystem::File *()) filename = file->getFilename();
+	else if (fileData.operator love::filesystem::FileData *()) filename = fileData->getFilename();
 
 	try
 	{
-		if (av_probe_input_buffer(ioContext, &inputFormat, filename.c_str(), nullptr, 0, 0) < 0)
-			throw love::Exception("Could not probe format");
-
 		formatContext = avformat_alloc_context();
 		formatContext->pb = ioContext;
-		formatContext->flags |= AVFMT_FLAG_CUSTOM_IO;
 
 		if (avformat_open_input(&formatContext, filename.c_str(), inputFormat, nullptr) < 0)
 			throw love::Exception("Could not open input stream");

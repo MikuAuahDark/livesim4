@@ -29,6 +29,7 @@ public:
 	};
 
 	FFMpegStream(love::filesystem::File *file, StreamType type);
+	FFMpegStream(love::filesystem::FileData *fileData, StreamType type);
 	~FFMpegStream();
 
 	bool readFrame(AVFrame *frame);
@@ -47,6 +48,8 @@ private:
 	StreamType type;
 
 	love::StrongRef<love::filesystem::File> file;
-
+	love::StrongRef<love::filesystem::FileData> fileData;
+	
+	void initialize();
 	bool readPacket();
 };

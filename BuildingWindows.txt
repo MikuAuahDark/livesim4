@@ -5,7 +5,7 @@ Requirements
 * MSVC 1800 (VS2013) or later - For building the whole project
 * CMake v3.1 or later - For building megasource
 * MSYS - For building FFmpeg
-* LOVE 0.10.2 - For the game
+* LOVE 11.1 - For the game (shipped)
 * FFmpeg 3.x - More audio/video support
 * LVEP - More audio/video support (shipped)
 
@@ -14,6 +14,8 @@ Preparation
 1. Download FFmpeg 3.x and extract it to `livesim4/ffmpeg`. Make sure there's `livesim4/ffmpeg/configure` there.
 2. Clone Megasource to `livesim4/megasource`
 2. Clone LOVE to `livesim4/src/love`
+
+(FFmpeg 4 is not supported at the moment. Use it with your own risk)
 
 Build FFmpeg
 ------------
@@ -41,9 +43,3 @@ The reason LOVE needs to be build along with livesim4 is that because livesim4 u
 this is not possible if LOVE is configured along with megasource (the DLLs doesn't expose the LOVE C++ API)
 
 This assume PhysFS 2.1 or later is used. If you're using 2.0, undefine "LOVE_USE_PHYSFS_2_1"
-
-When building it in my machine, I'm getting internal compiler error, so I have to
-modify `livesim4/src/love/src/modules/joystick/sdl/joystick.h` line 111 to this
-```
-SDL_HapticEffect effect;
-```

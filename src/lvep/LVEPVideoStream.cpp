@@ -109,9 +109,25 @@ void LVEPVideoStream::fillBackBuffer()
 	dirty = true;
 	previousFrame = pts;
 
-	memcpy(backBuffer->yplane, frame->data[0], backBuffer->yw*backBuffer->yh);
-	memcpy(backBuffer->cbplane, frame->data[1], backBuffer->cw*backBuffer->ch);
-	memcpy(backBuffer->crplane, frame->data[2], backBuffer->cw*backBuffer->ch);
+	// A note, simple memcpy won't work due to alignment.
+	int videoWidth = getWidth();
+	int videoHeight = getHeight();
+	int j = 0;
+	// Y first
+	for (int i = 0; i < videoHeight; i++)
+	{
+		memcpy(backBuffer->yplane + (i * videoWidth), &frame->data[0][j], videoWidth);
+		j += frame->linesize[0];
+	}
+	// Then U & V
+	j = 0;
+	for (int i = 0; i < (videoHeight >> 1); i++)
+	{
+		int k = (i * (videoWidth >> 1));
+		memcpy(backBuffer->cbplane + k, &frame->data[1][j], videoWidth >> 1);
+		memcpy(backBuffer->crplane + k, &frame->data[2][j], videoWidth >> 1);
+		j += frame->linesize[1];
+	}
 
 	if (!stream->readFrame(frame))
 		eos = true;
@@ -137,6 +153,18 @@ bool LVEPVideoStream::swapBuffers()
 	frontBuffer = backBuffer;
 	backBuffer = temp;
 	return true;
+}
+
+void LVEPVideoStream::play()
+{
+	previousTime = love::timer::Timer::getTime();
+	return this->love::video::VideoStream::play();
+}
+
+void LVEPVideoStream::pause()
+{
+	frameSync->update(love::timer::Timer::getTime()-previousTime);
+	return this->love::video::VideoStream::pause();
 }
 
 void LVEPVideoStream::tinySeek(double target)

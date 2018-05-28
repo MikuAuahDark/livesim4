@@ -56,7 +56,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LOVE_ENABLE_LVEP;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)../megasource/libs/$(ZLIBVER);$(SolutionDir)../megasource/build/zlib;$(SolutionDir)../megasource/libs/$(FREETYPE)/include;$(SolutionDir)../megasource/libs/libmodplug-0.8.8.4/src;$(SolutionDir)../megasource/build/libmodplug;$(SolutionDir)../megasource/libs/$(LIBOGG)/include;$(SolutionDir)../megasource/libs/$(LIBTHEORA)/include;$(SolutionDir)../megasource/libs/$(LIBVORBIS)/include;$(SolutionDir)../megasource/libs/LuaJIT/src;$(SolutionDir)../megasource/libs/$(MPG123)/src;$(SolutionDir)../megasource/libs/$(MPG123)/src/libmpg123;$(SolutionDir)../megasource/libs/$(MPG123)/ports/MSVC++;$(SolutionDir)../megasource/libs/openal-soft/include;$(SolutionDir)../megasource/libs/$(PHYSFS)/src;$(SolutionDir)../megasource/libs/SDL2/include;$(SolutionDir)../lib/ffmpeg/msvc/include;$(SolutionDir)../src/love/src;$(SolutionDir)../src/love/src/modules;$(SolutionDir)../src/love/src/libraries;$(SolutionDir)../src/love/src/libraries/luasocket;$(SolutionDir)../src/love/src/libraries/enet/libenet/include</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
       <UndefinePreprocessorDefinitions>
@@ -77,7 +77,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LOVE_ENABLE_LVEP;LOVE_USE_PHYSFS_2_1;GLAD_USE_SDL;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)../megasource/libs/$(ZLIBVER);$(SolutionDir)../megasource/build/zlib;$(SolutionDir)../megasource/libs/$(FREETYPE)/include;$(SolutionDir)../megasource/libs/libmodplug-0.8.8.4/src;$(SolutionDir)../megasource/build/libmodplug;$(SolutionDir)../megasource/libs/$(LIBOGG)/include;$(SolutionDir)../megasource/libs/$(LIBTHEORA)/include;$(SolutionDir)../megasource/libs/$(LIBVORBIS)/include;$(SolutionDir)../megasource/libs/LuaJIT/src;$(SolutionDir)../megasource/libs/$(MPG123)/src;$(SolutionDir)../megasource/libs/$(MPG123)/src/libmpg123;$(SolutionDir)../megasource/libs/$(MPG123)/ports/MSVC++;$(SolutionDir)../megasource/libs/openal-soft/include;$(SolutionDir)../megasource/libs/$(PHYSFS)/src;$(SolutionDir)../megasource/libs/SDL2/include;$(SolutionDir)../lib/ffmpeg/msvc/include;$(SolutionDir)../src/love/src;$(SolutionDir)../src/love/src/modules;$(SolutionDir)../src/love/src/libraries;$(SolutionDir)../src/love/src/libraries/luasocket;$(SolutionDir)../src/love/src/libraries/enet/libenet/include</AdditionalIncludeDirectories>
       <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
       <UndefinePreprocessorDefinitions>
@@ -93,25 +93,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\AssetManager.cpp" />
+    <ClCompile Include="..\..\src\Boot.cpp" />
+    <ClCompile Include="..\..\src\conf.cpp" />
     <ClCompile Include="..\..\src\livesim4.cpp" />
     <ClCompile Include="..\..\src\lovewrap\LOVEWrapFilesystem.cpp" />
     <ClCompile Include="..\..\src\lovewrap\LOVEWrapGraphics.cpp" />
     <ClCompile Include="..\..\src\love\src\common\android.cpp" />
     <ClCompile Include="..\..\src\love\src\common\b64.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\Data.cpp" />
     <ClCompile Include="..\..\src\love\src\common\delay.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\deprecation.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Exception.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\halffloat.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Matrix.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Memoizer.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\memory.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Module.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Object.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\pixelformat.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Reference.cpp" />
     <ClCompile Include="..\..\src\love\src\common\runtime.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\Stream.cpp" />
+    <ClCompile Include="..\..\src\love\src\common\StringMap.cpp" />
     <ClCompile Include="..\..\src\love\src\common\types.cpp" />
     <ClCompile Include="..\..\src\love\src\common\utf8.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Variant.cpp" />
     <ClCompile Include="..\..\src\love\src\common\Vector.cpp" />
-    <ClCompile Include="..\..\src\love\src\common\wrap_Data.cpp" />
     <ClCompile Include="..\..\src\love\src\libraries\Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="..\..\src\love\src\libraries\Box2D\Collision\b2CollideCircle.cpp" />
     <ClCompile Include="..\..\src\love\src\libraries\Box2D\Collision\b2CollideEdge.cpp" />
@@ -170,9 +177,42 @@
     <ClCompile Include="..\..\src\love\src\libraries\enet\libenet\unix.c" />
     <ClCompile Include="..\..\src\love\src\libraries\enet\libenet\win32.c" />
     <ClCompile Include="..\..\src\love\src\libraries\glad\glad.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\GenericCodeGen\CodeGen.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\GenericCodeGen\Link.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Constant.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\glslang_tab.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\InfoSink.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Initialize.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Intermediate.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\intermOut.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\IntermTraverse.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\iomapper.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\limits.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\linkValidate.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\parseConst.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ParseContextBase.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ParseHelper.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\PoolAlloc.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\Pp.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpAtom.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpContext.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpScanner.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\preprocessor\PpTokens.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\propagateNoContraction.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\reflection.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\RemoveTree.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Scan.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\ShaderLang.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\SymbolTable.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\MachineIndependent\Versions.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\glslang\OSDependent\Windows\ossource.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\glslang\OGLCompilersDLL\InitializeDll.cpp" />
     <ClCompile Include="..\..\src\love\src\libraries\lodepng\lodepng.cpp" />
+    <ClCompile Include="..\..\src\love\src\libraries\lua53\lstrlib.c" />
+    <ClCompile Include="..\..\src\love\src\libraries\lua53\lutf8lib.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\auxiliar.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\buffer.c" />
+    <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\compat.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\except.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\inet.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\io.c" />
@@ -185,7 +225,6 @@
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\udp.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\libluasocket\wsocket.c" />
     <ClCompile Include="..\..\src\love\src\libraries\luasocket\luasocket.cpp" />
-    <ClCompile Include="..\..\src\love\src\libraries\luautf8\lutf8lib.c" />
     <ClCompile Include="..\..\src\love\src\libraries\lz4\lz4.c" />
     <ClCompile Include="..\..\src\love\src\libraries\lz4\lz4hc.c" />
     <ClCompile Include="..\..\src\love\src\libraries\noise1234\noise1234.cpp" />
@@ -194,15 +233,35 @@
     <ClCompile Include="..\..\src\love\src\libraries\Wuff\wuff_convert.c" />
     <ClCompile Include="..\..\src\love\src\libraries\Wuff\wuff_internal.c" />
     <ClCompile Include="..\..\src\love\src\libraries\Wuff\wuff_memory.c" />
+    <ClCompile Include="..\..\src\love\src\libraries\xxHash\xxhash.c" />
     <ClCompile Include="..\..\src\love\src\modules\audio\Audio.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\Effect.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\Filter.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\null\Audio.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\null\RecordingDevice.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\null\Source.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\openal\Audio.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\Effect.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\Filter.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\openal\Pool.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\openal\RecordingDevice.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\openal\Source.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\RecordingDevice.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\Source.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\wrap_Audio.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\audio\wrap_RecordingDevice.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\audio\wrap_Source.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\ByteData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\CompressedData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\Compressor.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\DataModule.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\DataView.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\HashFunction.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_ByteData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_CompressedData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_Data.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_DataModule.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\data\wrap_DataView.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\event\Event.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\event\sdl\Event.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\event\wrap_Event.cpp" />
@@ -227,44 +286,57 @@
     <ClCompile Include="..\..\src\love\src\modules\font\wrap_Font.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\font\wrap_GlyphData.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\font\wrap_Rasterizer.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Buffer.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Canvas.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Deprecations.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\depthstencil.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Drawable.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Font.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\Graphics.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Image.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Mesh.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Buffer.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Canvas.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Font.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\GLBuffer.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\FenceSync.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Graphics.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Image.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Mesh.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\OpenGL.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\ParticleSystem.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Polyline.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Shader.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\SpriteBatch.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Text.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\Video.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Canvas.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Font.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Graphics.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Image.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Mesh.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_ParticleSystem.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Shader.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_SpriteBatch.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Text.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\wrap_Video.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\ShaderStage.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\opengl\StreamBuffer.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\ParticleSystem.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Polyline.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\Quad.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Shader.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\ShaderStage.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\SpriteBatch.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\StreamBuffer.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Text.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\Texture.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\vertex.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\Video.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\Volatile.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Canvas.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Font.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Graphics.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Image.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Mesh.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_ParticleSystem.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Quad.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Shader.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_SpriteBatch.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Text.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Texture.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\graphics\wrap_Video.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\CompressedImageData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\image\CompressedSlice.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\image\FormatHandler.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\image\Image.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\ImageData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\image\ImageDataBase.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\ASTCHandler.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\CompressedImageData.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\ddsHandler.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\FormatHandler.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\Image.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\image\magpie\ImageData.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\image\magpie\EXRHandler.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\KTXHandler.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\PKMHandler.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\image\magpie\PNGHandler.cpp" />
@@ -283,14 +355,13 @@
     <ClCompile Include="..\..\src\love\src\modules\keyboard\wrap_Keyboard.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\love\love.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\BezierCurve.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\math\CompressedData.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\math\Compressor.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\MathModule.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\RandomGenerator.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\math\Transform.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\wrap_BezierCurve.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\math\wrap_CompressedData.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\wrap_Math.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\math\wrap_RandomGenerator.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\math\wrap_Transform.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\mouse\Cursor.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\mouse\sdl\Cursor.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\mouse\sdl\Mouse.cpp" />
@@ -343,8 +414,8 @@
     <ClCompile Include="..\..\src\love\src\modules\physics\box2d\wrap_World.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\physics\Joint.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\physics\Shape.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\sound\Decoder.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\CoreAudioDecoder.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\Decoder.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\FLACDecoder.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\GmeDecoder.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\sound\lullaby\ModPlugDecoder.cpp" />
@@ -369,13 +440,13 @@
     <ClCompile Include="..\..\src\love\src\modules\thread\wrap_Channel.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\thread\wrap_LuaThread.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\thread\wrap_ThreadModule.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\timer\sdl\Timer.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\timer\Timer.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\timer\wrap_Timer.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\touch\sdl\Touch.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\touch\wrap_Touch.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\video\theora\OggDemuxer.cpp" />
+    <ClCompile Include="..\..\src\love\src\modules\video\theora\TheoraVideoStream.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\video\theora\Video.cpp" />
-    <ClCompile Include="..\..\src\love\src\modules\video\theora\VideoStream.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\video\VideoStream.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\video\wrap_Video.cpp" />
     <ClCompile Include="..\..\src\love\src\modules\video\wrap_VideoStream.cpp" />

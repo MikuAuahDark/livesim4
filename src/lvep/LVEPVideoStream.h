@@ -29,6 +29,8 @@ public:
 	virtual const void *getFrontBuffer() const;
 	virtual size_t getSize() const;
 	virtual bool swapBuffers();
+	virtual void pause();
+	virtual void play();
 
 private:
 	FFMpegStream *stream;

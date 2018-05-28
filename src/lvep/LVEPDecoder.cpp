@@ -5,11 +5,10 @@ extern "C"
 #include <libavutil/opt.h>
 }
 
-LVEPDecoder::LVEPDecoder(love::filesystem::File *file)
-	: stream(file, FFMpegStream::TYPE_AUDIO)
+LVEPDecoder::LVEPDecoder(love::filesystem::FileData *data, int bufferSize)
+	: love::sound::Decoder(data, data->getExtension(), bufferSize)
+	, stream(data, FFMpegStream::TYPE_AUDIO)
 	, frame(nullptr)
-	, file(file)
-	, eos(false)
 {
 	frame = av_frame_alloc();
 	if (!stream.readFrame(frame))
@@ -59,21 +58,21 @@ int LVEPDecoder::decode()
 {
 	if (!stream.readFrame(frame))
 	{
-		eos = true;
+		eof = true;
 		return 0;
 	}
-	uint8_t *buffers[1] = {buffer};
+	uint8_t *buffers[2] = {(uint8_t *) buffer, nullptr};
 	int decoded = swr_convert(recodeContext,
-				buffers, bufferSize,
-				(const uint8_t**) &frame->data[0], frame->nb_samples*frame->channels);
+				buffers, (bufferSize >> 1) / frame->channels,
+				(const uint8_t**) &frame->data[0], frame->nb_samples);
 	if (decoded < 0)
 		return 0;
-	return decoded*frame->channels;
+	return decoded*frame->channels*2;
 }
 
 bool LVEPDecoder::seek(float s)
 {
-	eos = false;
+	eof = false;
 	return stream.seek(s);
 }
 
@@ -89,10 +88,10 @@ bool LVEPDecoder::isSeekable()
 
 bool LVEPDecoder::isFinished()
 {
-	return eos;
+	return eof;
 }
 
-int LVEPDecoder::getChannels() const
+int LVEPDecoder::getChannelCount() const
 {
 	return frame->channels;
 }

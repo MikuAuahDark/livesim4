@@ -44,14 +44,14 @@ namespace asset
  * @param filename Image filename
  * @return Drawable image object (or nullptr on failure)
  */
-love::graphics::opengl::Image *loadImage(std::string filename);
+love::graphics::Image *loadImage(std::string filename);
 /**
  * Load image (File object). User must release the Image!
  *
  * @param filename Image filename
  * @return Drawable image object (or nullptr on failure)
  */
-love::graphics::opengl::Image *loadImage(love::filesystem::File *filename);
+love::graphics::Image *loadImage(love::filesystem::File *filename);
 /**
  * Load font (string filename). User must release the Font!
  *
@@ -59,7 +59,7 @@ love::graphics::opengl::Image *loadImage(love::filesystem::File *filename);
  * @param size Font size
  * @return Font object (or nullptr on failure)
  */
-love::graphics::opengl::Font *loadFont(std::string filename, int size = 12);
+love::graphics::Font *loadFont(std::string filename, int size = 12);
 /**
  * Load font (File object). User must release the Font!
  *
@@ -67,14 +67,14 @@ love::graphics::opengl::Font *loadFont(std::string filename, int size = 12);
  * @param size Font size
  * @return Font object (or nullptr on failure)
  */
-love::graphics::opengl::Font *loadFont(love::filesystem::File *filename, int size = 12);
+love::graphics::Font *loadFont(love::filesystem::File *filename, int size = 12);
 /**
  * Load font (Vera sans). User must release the Font!
  *
  * @param size Font size
  * @return Font object (or nullptr on failure)
  */
-love::graphics::opengl::Font *loadFont(int size = 12);
+love::graphics::Font *loadFont(int size = 12);
 
 } // asset
 } // livesim

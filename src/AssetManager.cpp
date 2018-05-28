@@ -29,9 +29,9 @@ namespace livesim
 namespace asset
 {
 
-love::graphics::opengl::Image *loadImage(std::string filename)
+love::graphics::Image *loadImage(std::string filename)
 {
-	auto lfs = love::Module::getInstance<love::filesystem::physfs::Filesystem>(love::Module::M_FILESYSTEM);
+	auto lfs = love::Module::getInstance<love::filesystem::Filesystem>(love::Module::M_FILESYSTEM);
 	
 	// Create new File object
 	auto file = lfs->newFile(filename.c_str());
@@ -40,10 +40,10 @@ love::graphics::opengl::Image *loadImage(std::string filename)
 	file->release();
 	return out;
 }
-love::graphics::opengl::Image *loadImage(love::filesystem::File *filename)
+love::graphics::Image *loadImage(love::filesystem::File *filename)
 {
 	auto li = love::Module::getInstance<love::image::Image>(love::Module::M_IMAGE);
-	auto lg = love::Module::getInstance<love::graphics::opengl::Graphics>(love::Module::M_GRAPHICS);
+	auto lg = love::Module::getInstance<love::graphics::Graphics>(love::Module::M_GRAPHICS);
 
 	// Open file
 	if (!filename->isOpen())
@@ -57,8 +57,8 @@ love::graphics::opengl::Image *loadImage(love::filesystem::File *filename)
 
 	// Load ImageData
 	love::filesystem::FileData *imagedata = filename->read();
-	love::graphics::opengl::Image *image = nullptr;
-	love::graphics::opengl::Image::Flags flg;
+	love::graphics::Image *image = nullptr;
+	love::graphics::Image::Flags flg;
 	flg.linear = false;
 	flg.mipmaps = false;
 	try

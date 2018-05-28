@@ -34,6 +34,9 @@ extern "C" {
 #include "libavformat/avformat.h"
 }
 
+// PhysFS
+#include "libraries/physfs/physfs.h"
+
 // love
 #include "common/Module.h"
 #include "modules/love/love.h"
@@ -51,13 +54,8 @@ extern "C" int luaopen_lvep(lua_State *L);
 // scene
 #include "Scene.h"
 
-// script
-const char mainLua[] = {
-#include "scripts/main.lua"
-};
-const char confLua[] = {
-#include "scripts/conf.lua"
-};
+// Lovewrap
+#include "lovewrap/LOVEWrap.h"
 
 #ifdef LOVE_WINDOWS
 extern "C" {
@@ -71,7 +69,7 @@ class SimpleSceneTest: public livesim::base::Scene
 public:
 	SimpleSceneTest(void *args): Scene(args)
 	{
-		livesim2_image = livesim::asset::loadImage("livesim2_icon.png");
+		livesim2_image = lovewrap::graphics::newImage("livesim2_icon.png");
 	}
 	~SimpleSceneTest()
 	{
@@ -80,9 +78,10 @@ public:
 	}
 	void draw()
 	{
-		auto g = love::Module::getInstance<love::graphics::opengl::Graphics>(love::Module::M_GRAPHICS);
-		g->clear(love::graphics::Colorf(255.0, 255.0, 255.0, 255.0));
-		livesim2_image->draw(0, 0, 0, 0.25, 0.25, 0, 0, 0, 0);
+		auto g = love::Module::getInstance<love::graphics::Graphics>(love::Module::M_GRAPHICS);
+		g->clear(love::Optional<love::Colorf>(love::Colorf(255.0, 255.0, 255.0, 255.0)), love::OptionalInt(), love::OptionalDouble());
+		//livesim2_image->draw(0, 0, 0, 0.25, 0.25, 0, 0, 0, 0);
+		lovewrap::graphics::draw(livesim2_image, 0, 0, 0.25, 0.25);
 	}
 	void update(double deltaT)
 	{
@@ -255,28 +254,8 @@ int runLivesim4(int argc, char *argv[])
 	lua_getglobal(L, "require");
 	lua_pushstring(L, "love");
 	lua_call(L, 1, 0);
+	// Boot
 
-	// Hijack love.nogame
-	lua_pushcfunction(L, [](lua_State *L)->int
-	{
-		lua_pushcfunction(L, [](lua_State *L)->int
-		{
-			// When love.nogame is called, load our conf.lua
-			luaL_loadbuffer(L, confLua, sizeof(confLua), "@conf.lua");
-			lua_call(L, 0, 0);
-
-			// And set love.load to current main.lua function
-			lua_getglobal(L, "love");
-			luaL_loadbuffer(L, mainLua, sizeof(mainLua), "@main.lua");
-			lua_setfield(L, -2, "load");
-
-			// return true for unknown reason
-			lua_pushboolean(L, 1);
-			return 1;
-		});
-		return 1;
-	});
-	lua_setfield(L, -2, "love.nogame");
 
 	// Initialize scene
 	livesim::base::initializeScene();
@@ -315,6 +294,9 @@ int runLivesim4(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
+	// Init PhysFS
+	PHYSFS_init(argv[0]);
+	
 	// Open libav
 	av_register_all();
 	avcodec_register_all();

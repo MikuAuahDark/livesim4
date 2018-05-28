@@ -1,7 +1,7 @@
 FiLive! Beatmap File Specification
 Extension: *.fim
            *.fi
-           *.flm is also acceptable, but it's used by FL Studio Mobile by Image-Line.
+           *.flm is also acceptable, but it's used by FL Studio Mobile
 Still subject to change!
 
 Datatypes (little endian):
@@ -58,7 +58,7 @@ Now list of chunks:
   For every notes by "Amount of notes":
     sfloat - Note timing in seconds
     dwordu - Attribute. Bit layout: rrrrrrrr rggggggg ggbbbbbb bbbccccc
-             * bit 0-4 (c): Note images following Sukufesu simulator note colors in order. Ask yuyu for it, lol.
+             * bit 0-4 (c): Note images following Sukufesu simulator note colors in order.
              * If all bits 0-4 is 1 - Colored note
                * bit 23-31 - R color (9 bits, unsigned)
                * bit 14-22 - G color (9 bits, unsigned)
@@ -68,7 +68,7 @@ Now list of chunks:
              * bit 4-5 - Note effect
                * 0 = Normal note
                * 1 = Token note
-               * 2 = Long note (bit 6-23 is the length, max 262.143 seconds or 262143 ms length)
+               * 2 = Long note
                * 3 = Star note
              * bit 6-7 - Note visibility
                * 0 = Usual note
@@ -93,11 +93,12 @@ Now list of chunks:
   byte - Swing note style ID
 
 * sRYL - Storyboard
+  dword  - Uncompressed length of storyboard script string below.
+  dword  - Compressed length, including the compression byte.
   byte   - Compression. If it's 0, then the data below is uncompressed.
            * If it's 0x78, then it's zlib compressed
            * If it's 0x1F, then it's gzip compressed
-  dword  - Uncompressed length of all data below.
-  string - Storyboard script
+  byte[n] - Storyboard script (in case of compressed, the compression byte is included)
 
 * FEND - End of beatmap file (zero-length chunk)
   If this chunk does not appear in EOF that means beatmap is corrupted.
